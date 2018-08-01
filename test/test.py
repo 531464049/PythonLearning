@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 # @Author  : mh
 
-from Person import Person
+import pprint
+import sys
+import webbrowser
+
 from ArithemeticSequence import ArithemeticSequence
 from Fibs import Fibs
-import sys, pprint
+from Person import Person
 
 per1 = Person()
 per1.set_name('shabi')
@@ -46,3 +49,8 @@ for num in flatten(nested):
     print(num)
 # 打印python搜索路径
 # pprint.pprint(sys.path)
+# 启动浏览器，打开网站
+# webbrowser.open('http://www.baidu.com')
+
+# import Numberlines
+# Numberlines.add_lineNum('Fibs.py')
