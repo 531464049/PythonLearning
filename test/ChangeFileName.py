@@ -10,21 +10,31 @@ def change_name(path):
         print("路径错误")
         return
     if os.path.isfile(path):
-        file_path = os.path.split(path)  #分割出目录与文件
-        lists = file_path[1].split('.')  #分割出文件与文件扩展名
-        file_ext = lists[-1]  #取出后缀名(列表切片操作)
+        # 分割出目录与文件
+        file_path = os.path.split(path)
+        # 分割出文件与文件扩展名
+        lists = file_path[1].split('.')
+        # # 文件名
+        fileName = lists[0]
+        # 后缀
+        file_ext = lists[-1]
         img_ext = ['jpeg', 'png', 'jpg']
+        print(lists[0])
+        # fileNmewName = fileName.replace('bz_2_2_o_ut', 'bz_3_3_p_u_t')
+        # os.rename(path, file_path[0] + '/' + fileNmewName + '.' + file_ext)
+
         if file_ext in img_ext:
-            os.rename(path,
-                      file_path[0] + '/' + 'bzjk' + lists[0] + '.' + file_ext)
+            fileNmewName = fileName.replace('_b_z_n_2_89_io_yu_7_', '_b_z_3_n_34_sfo_p_x_')
+            os.rename(path, file_path[0] + '/' + fileNmewName + '.' + file_ext)
 
     elif os.path.isdir(path):
         for x in os.listdir(path):
-            change_name(os.path.join(path, x))  #os.path.join()在路径处理上很有用
+            # os.path.join()在路径处理上很有用
+            change_name(os.path.join(path, x))
 
 
 def main():
-    img_dir = '/Users/mahao/Desktop/1111'
+    img_dir = '/Users/mahao/Desktop/images'
     start = time.time()
     change_name(img_dir)
     c = time.time() - start
